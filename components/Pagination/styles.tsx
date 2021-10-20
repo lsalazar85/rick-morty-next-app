@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from 'styled-components'
 
 export const PaginationContainer = styled.ul`
   display: flex;
@@ -17,7 +17,7 @@ export const PaginationList = styled.li`
   height: 1.875rem;
 `
 
-export const PageNumber = styled.button`
+export const PageNumber = styled.button<{ currentPage?: boolean }>`
   cursor: pointer;
   font-weight: 700;
   width: 100%;

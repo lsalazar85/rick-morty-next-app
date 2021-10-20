@@ -14,7 +14,7 @@ export const Pagination = ({pageCount, setPage, currentPage}: Props) => {
     for (let i = 1; i <= pageCount; i++) {
         pageButtons.push(
             <PageNumber
-                className={currentPage === i ? "btn btn-info active" : "btn btn-info"}
+                currentPage={currentPage === i}
                 key={i}
                 onClick={() => setPage(i)}
             >

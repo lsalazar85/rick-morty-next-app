@@ -12,8 +12,8 @@ import { Pagination } from "../components/Pagination"
 import { Main, Content } from '../styles/styles'
 
 const Home = () => {
-    const [character, setCharacter] = useState("");
-    const [page, setPage] = useState(1)
+    const [character, setCharacter] = useState<string>("");
+    const [page, setPage] = useState<number>(1)
 
     const { loading, error, data } = useQuery(GET_ALL_CHARACTERS, {
       variables: {
