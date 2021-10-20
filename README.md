@@ -12,7 +12,7 @@ Rick and Morty app developed with Next.js and Typescript
 
 ```
     yarn install
-    npm run dev
+    yarn run dev
 ```
 Starts on `http://localhost:3000`
 
