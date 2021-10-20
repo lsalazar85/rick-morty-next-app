@@ -8,7 +8,7 @@ type Character {
     "Time at which the character was created in the database."
     created: String
     "Episodes in which this character appeared."
-    episode: [Episode]!
+    episode: [Episode]
     "The gender of the character ('Female', 'Male', 'Genderless' or 'unknown')."
     gender: String
     "The id of the character."
@@ -42,7 +42,7 @@ type Episode {
     "The air date of the episode."
     air_date: String
     "List of characters who have been seen in the episode."
-    characters: [Character]!
+    characters: [Character]
     "Time at which the episode was created in the database."
     created: String
     "The code of the episode."
@@ -79,7 +79,7 @@ type Location {
     "The name of the location."
     name: String
     "List of characters who have been last seen in the location."
-    residents: [Character]!
+    residents: [Character]
     "The type of the location."
     type: String
 }

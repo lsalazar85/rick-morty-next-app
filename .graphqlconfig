@@ -1,14 +1,14 @@
 {
-  "name": "Rick and Morty GraphQL Schema",
+  "name": "Rick and Morty GraphQL Server",
   "schemaPath": "schema.graphql",
   "extensions": {
     "endpoints": {
       "Default GraphQL Endpoint": {
-        "url": "${env:API_URL}",
+        "url": "https://rickandmortyapi.com/graphql",
         "headers": {
           "user-agent": "JS GraphQL"
         },
-        "introspect": false
+        "introspect": true
       }
     }
   }
