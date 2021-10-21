@@ -13,11 +13,11 @@ import DataNotFound from "../components/DataNotFound";
 
 import { Main, Content, CardSection } from '../styles/styles'
 
-
 const Home = () => {
     const [character, setCharacter] = useState<string>("");
-    const [pageAllCharacter, setPageAllCharacter] = useState<number>(1)
+    const [pageAllCharacters, setPageAllCharacters] = useState<number>(1)
     const [pageByName, setPageByName] = useState<number>(1)
+    const [pageCount, setPageCount] = useState<number>(1)
 
     const handleOnChange = (e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
         setCharacter(e.target.value)
@@ -25,8 +25,10 @@ const Home = () => {
 
     const AllCharacters = () => {
         const { loading, error, data } = useQuery(GET_ALL_CHARACTERS, {
-            variables: {page: pageAllCharacter},
+            variables: {page: pageAllCharacters},
         })
+
+        data && setPageCount(data?.characters?.info?.pages)
 
         return (
             <>
@@ -37,11 +39,6 @@ const Home = () => {
                         <Card key={character.id} character={character} />
                     ))}
                 </CardSection>
-                <Pagination
-                    pageCount={data?.characters?.info?.pages}
-                    setPage={setPageAllCharacter}
-                    currentPage={pageAllCharacter}
-                />
             </>
         )
     }
@@ -54,6 +51,8 @@ const Home = () => {
             },
         })
 
+        data && setPageCount(data?.characters?.info?.pages)
+
         return (
             <>
                 {loading && <Loader />}
@@ -63,11 +62,6 @@ const Home = () => {
                         <Card key={character.id} character={character} />
                     ))}
                 </CardSection>
-                <Pagination
-                    pageCount={data?.characters?.info?.pages}
-                    setPage={setPageByName}
-                    currentPage={pageByName}
-                />
             </>
         )
     }
@@ -80,7 +74,12 @@ const Home = () => {
             <link rel="icon" href="/favicon.ico" />
           </Head>
             <Header />
-            <Search onChange={handleOnChange}/>
+            <Search onChange={handleOnChange} />
+            <Pagination
+                pageCount={pageCount}
+                setPage={character ? setPageByName : setPageAllCharacters}
+                currentPage={character ? pageByName : pageAllCharacters}
+            />
             <Content>
                 {character ? <CharacterByName /> : <AllCharacters />}
             </Content>

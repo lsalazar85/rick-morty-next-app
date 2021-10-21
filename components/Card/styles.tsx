@@ -2,7 +2,6 @@ import styled from "styled-components";
 import Image from "next/image";
 import {fadeIn} from "../../styles/animation";
 
-
 export const CardContainer = styled.div`
   display: flex;
   border-radius: 0.5rem;
@@ -30,9 +29,9 @@ export const CharacterImage = styled(Image)`
  border-radius: 3.125rem;
 `
 
-
 export const CharacterDetails = styled.div`
   display: flex;
   flex-direction: column;
   padding: 1rem;
+  font-size: 0.81rem;
 `

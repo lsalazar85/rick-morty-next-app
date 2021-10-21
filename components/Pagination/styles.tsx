@@ -1,36 +1,32 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
-export const PaginationContainer = styled.ul`
+export const PaginationContainer = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 1rem 0 2rem 0;
+  padding: 1rem 0 1rem 0;
 `
 
-export const PaginationList = styled.li`
+export const PaginationDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 1rem;
-  width: 1.875rem;
-  height: 1.875rem;
+  
+  :last-child{
+    margin-top: 1rem;
+  }
+  
+  button {
+    :first-child{
+      margin-right: 1rem;
+    }
+  }
 `
 
-export const PageNumber = styled.button<{ currentPage?: boolean }>`
-  cursor: pointer;
+export const PaginationText = styled.span`
+  margin: 0 1rem;
   font-weight: 700;
-  width: 100%;
-  height: 100%;
-  color: #97ce4c;
-  border-radius: 3.125rem;
-  border: 1px solid #97ce4c;
-
-   ${(props) =>
-    props.currentPage &&
-    css`
-      background: #97ce4c;
-      color: #000000;
-      border: none;
-    `}
+  color: #ffffff;
 `
