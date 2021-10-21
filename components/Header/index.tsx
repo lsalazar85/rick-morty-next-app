@@ -5,7 +5,7 @@ const Header = () => (
     <HeaderContainer>
         <Image
             src="/logo.png"
-            alt="Picture of the author"
+            alt="Rick and Morty Logo"
             layout="intrinsic"
             width={270}
             height={90}

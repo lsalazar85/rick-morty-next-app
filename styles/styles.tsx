@@ -8,16 +8,23 @@ export const Main = styled.main`
 `
 
 export const Content = styled.section`
-  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 1rem;
+  
+  @media(min-width: 320px){
+    width: 100%;
+  }
+
+  @media(min-width: 900px){
+    width: 900px;
+  }
 `
 
 export const CardSection = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
 `

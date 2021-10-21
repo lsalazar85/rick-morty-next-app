@@ -1,5 +1,7 @@
 import styled, {keyframes, css} from "styled-components";
 import Image from "next/image";
+import {fadeIn} from "../../styles/animation";
+
 
 const rotate = keyframes`
   from {
@@ -21,6 +23,7 @@ export const LoaderContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  ${fadeIn({ time: '400ms' })};
 `
 
 export const LoaderImage = styled(Image)`

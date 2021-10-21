@@ -11,8 +11,8 @@ const Card = ({ character }: Props) => (
             src={character.image!}
             alt={character.name}
             layout="intrinsic"
-            width={90}
-            height={90}
+            width={130}
+            height={130}
         />
         <CharacterDetails>
             <span>{character.name}</span>
