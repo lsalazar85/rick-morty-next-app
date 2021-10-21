@@ -7,11 +7,17 @@ interface Episode {
 export interface Character {
     name?: string
     image?: string
-    dimension?: string[]
+    dimensionName?: {
+        dimension?: string
+    }
     status?: string
     species?: string
     gender?: string
-    origin?: string[]
-    location?: string[]
-    episode?: Episode
+    origin?: {
+        name?: string
+    }
+    location?: {
+        name?: string
+    }
+    episode?: Episode[]
 }

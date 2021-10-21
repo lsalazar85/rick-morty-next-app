@@ -18,8 +18,8 @@ export const Content = styled.section`
     width: 100%;
   }
 
-  @media(min-width: 900px){
-    width: 900px;
+  @media(min-width: 1024px){
+    width: 1024px;
   }
 `
 

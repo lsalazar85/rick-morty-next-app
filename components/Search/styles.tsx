@@ -6,7 +6,7 @@ export const SearchContainer = styled.form`
   align-items: center;
   width: 100%;
   padding: 1rem 0;
-  background: #24325f99;
+  background: linear-gradient(110deg, #97ce4c 60%, #62a4ab 60%);
 `
 
 export const SearchInput = styled.input`

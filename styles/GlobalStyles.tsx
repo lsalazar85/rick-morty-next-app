@@ -17,6 +17,6 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     overscroll-behavior: none;
     width: 100%; 
-    background: #69C8ECFF;
+    background: #24281b;
   }
 `

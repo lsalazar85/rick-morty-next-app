@@ -11,7 +11,7 @@ export const GET_ALL_CHARACTERS  = gql`
                 id
                 image
                 name
-                dimension: location {
+                dimensionName: location {
                     dimension
                 }
                 status
