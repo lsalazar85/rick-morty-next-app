@@ -9,6 +9,7 @@ import Header from "../components/Header"
 import Loader from "../components/Loader";
 import Pagination from "../components/Pagination"
 import Card from "../components/Card";
+import DataNotFound from "../components/DataNotFound";
 
 import { Main, Content, CardSection } from '../styles/styles'
 
@@ -30,7 +31,7 @@ const Home = () => {
         return (
             <>
                 {loading && <Loader />}
-                {error && <div>Error</div>}
+                {error && <DataNotFound message="Character Not Found" />}
                 <CardSection>
                     {data?.characters?.results.map((character:any) => (
                         <Card key={character.id} character={character} />
@@ -56,7 +57,7 @@ const Home = () => {
         return (
             <>
                 {loading && <Loader />}
-                {error && <div>Error</div>}
+                {error && <DataNotFound message="Character Not Found" />}
                 <CardSection>
                     {data?.characters?.results.map((character:any) => (
                         <Card key={character.id} character={character} />

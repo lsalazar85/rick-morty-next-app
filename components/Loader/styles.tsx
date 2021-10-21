@@ -2,7 +2,6 @@ import styled, {keyframes, css} from "styled-components";
 import Image from "next/image";
 import {fadeIn} from "../../styles/animation";
 
-
 const rotate = keyframes`
   from {
     transform: rotate(0deg);

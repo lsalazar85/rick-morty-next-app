@@ -4,7 +4,7 @@ const Loader = () => (
     <LoaderContainer>
         <LoaderImage
             src="/rick.png"
-            alt="Picture of the author"
+            alt="Loader Icon"
             layout="intrinsic"
             width={90}
             height={90}
