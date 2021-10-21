@@ -1,9 +1,28 @@
+import { CardContainer, CharacterImage, CharacterDetails } from "./styles";
+import { Character } from '../../interfaces'
+
 interface Props {
-    name: string
+    character: Character
 }
 
-const Card = (props: Props)=> (
-    <div style={{ width: "30%", height: '10rem', border: '1px solid red', margin: '0 2rem 2rem 0'}}>{props.name}</div>
+const Card = ({ character }: Props) => (
+    <CardContainer>
+        <CharacterImage
+            src={character.image!}
+            alt={character.name}
+            layout="intrinsic"
+            width={90}
+            height={90}
+        />
+        <CharacterDetails>
+            <span>{character.name}</span>
+            <span>{character.name}</span>
+            <span>{character.name}</span>
+            <span>{character.name}</span>
+            <span>{character.name}</span>
+        </CharacterDetails>
+    </CardContainer>
 )
+
 
 export default Card

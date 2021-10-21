@@ -9,6 +9,7 @@ export const GET_ALL_CHARACTERS  = gql`
             }
             results {
                 id
+                image
                 name
                 dimension: location {
                     dimension

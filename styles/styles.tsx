@@ -15,3 +15,9 @@ export const Content = styled.section`
   justify-content: space-between;
   padding: 1rem;
 `
+
+export const CardSection = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+`

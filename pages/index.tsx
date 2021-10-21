@@ -7,9 +7,11 @@ import { GET_ALL_CHARACTERS } from "../queries"
 import Search from "../components/Search"
 import Header from "../components/Header"
 import Loader from "../components/Loader";
-import { Pagination } from "../components/Pagination"
+import Pagination from "../components/Pagination"
+import Card from "../components/Card";
 
-import { Main, Content } from '../styles/styles'
+import { Main, Content, CardSection } from '../styles/styles'
+
 
 const Home = () => {
     const [character, setCharacter] = useState<string>("");
@@ -37,6 +39,11 @@ const Home = () => {
             <Search onChange={handleOnChange}/>
             <Content>
                 {loading && <Loader />}
+                <CardSection>
+                    {data?.characters?.results.map((character:any) => (
+                        <Card key={character.id} character={character} />
+                    ))}
+                </CardSection>
                 <Pagination
                     pageCount={data?.characters?.info?.pages}
                     setPage={setPage}

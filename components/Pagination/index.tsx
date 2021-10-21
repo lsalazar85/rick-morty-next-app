@@ -7,7 +7,7 @@ interface Props {
     currentPage: number
 }
 
-export const Pagination = ({pageCount, setPage, currentPage}: Props) => {
+const Pagination = ({pageCount, setPage, currentPage}: Props) => {
     const [pageOrder, setPageOrder] = useState<number>(10)
     const pageButtons = []
 
@@ -31,3 +31,5 @@ export const Pagination = ({pageCount, setPage, currentPage}: Props) => {
         </PaginationContainer>
     )
 };
+
+export default Pagination
