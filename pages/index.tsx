@@ -1,7 +1,8 @@
-import { useState, ChangeEvent } from 'react'
+import { useContext, ChangeEvent } from 'react'
 import Head from 'next/head'
 import { useQuery } from "@apollo/client"
 
+import MainContext from "../context/MainContext";
 import { GET_ALL_CHARACTERS, FILTER_CHARACTER_BY_NAME } from "../queries"
 
 import Search from "../components/Search"
@@ -12,16 +13,22 @@ import Content from "../components/Content";
 import { Main } from '../styles/styles'
 
 const Home = () => {
-    const [character, setCharacter] = useState<string>("");
-    const [pageAllCharacters, setPageAllCharacters] = useState<number>(1)
-    const [pageByName, setPageByName] = useState<number>(1)
+    const {
+        pageCount,
+        pageAllCharacters,
+        setPageAllCharacters,
+        pageByName,
+        setPageByName,
+        character,
+        setCharacter
+    } = useContext(MainContext)
 
     const handleOnChange = (e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
         setCharacter(e.target.value)
     }
 
     const allCharacters = useQuery(GET_ALL_CHARACTERS, {
-        variables: {page: pageAllCharacters},
+        variables: { page: pageAllCharacters },
     })
 
     const charactersByName = useQuery(FILTER_CHARACTER_BY_NAME, {
@@ -30,9 +37,6 @@ const Home = () => {
             character: character
         },
     })
-
-    const pageCount = character ? charactersByName?.data?.characters?.info?.pages :
-        allCharacters?.data?.characters?.info?.pages
 
     return (
         <Main>
@@ -46,7 +50,7 @@ const Home = () => {
             <Pagination
                 pageCount={pageCount}
                 setPage={character ? setPageByName : setPageAllCharacters}
-                currentPage={character ? pageByName : pageAllCharacters}
+                currentPage={character ? pageByName: pageAllCharacters}
             />
             {
                 character ? <Content dataObject={charactersByName} /> :

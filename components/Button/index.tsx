@@ -1,8 +1,8 @@
 import { ButtonContainer } from "./styles";
 
 interface Props {
-    fn?: () => void
-    text?: string
+    fn: () => void
+    text: string
 }
 
 const Button = ({ fn, text }: Props) => (

@@ -3,7 +3,7 @@ import Button from "../Button";
 
 interface Props {
     pageCount: number,
-    setPage: any,
+    setPage: (currentPage: number) => void
     currentPage: number
 }
 

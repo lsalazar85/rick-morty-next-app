@@ -2,7 +2,7 @@ import { DataNotFoundWrapper, DataNotFoundTitle } from "./styles";
 import Image from "next/image";
 
 interface Props {
-    message?: string
+    message: string
 }
 
 const DataNotFound = ({ message }: Props) => (

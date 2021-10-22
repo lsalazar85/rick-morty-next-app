@@ -1,40 +1,43 @@
 interface EpisodeCharacters {
-    characters?: {
-        name?: string
-    }
+    name: string
 }
 
 interface Episode {
-    name?: string
-    air_date?: string
-    episode?: string
-    characters?: Array<EpisodeCharacters>
+    name: string
+    air_date: string
+    episode: string
+    characters: EpisodeCharacters[]
 }
 
 export interface Character {
-    name?: string
-    image?: string
-    dimensionName?: {
-        dimension?: string
+    id: number
+    name: string
+    image: string
+    dimensionName: {
+        dimension: string
     }
-    status?: string
-    species?: string
-    gender?: string
-    origin?: {
-        name?: string
+    status: string
+    species: string
+    gender: string
+    origin: {
+        name: string
     }
-    location?: {
-        name?: string
+    location: {
+        name: string
     }
-    episode?: Array<Episode>
+    episode: Episode[]
 }
 
 export interface ContentProps {
-    loading?: boolean
-    error?: boolean | undefined | any
-    data?: {
-        characters?: {
-            results?: Array<Character>
+    loading: boolean
+    error?: any
+    data: {
+        characters: {
+            results: Character[]
+            info: {
+                count: number
+                pages: number
+            }
         }
     }
 }

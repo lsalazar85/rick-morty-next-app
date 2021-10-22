@@ -81,7 +81,7 @@ const Card = ({ character }: Props) => {
                    </CharacterInfo>
                    <EpisodeCharacter>
                        {
-                           episode?.[0]?.characters?.map((characterName:any, idx: number) => (
+                           episode?.[0]?.characters?.map((characterName, idx: number) => (
                                <CharacterInfo key={idx}>{characterName.name}</CharacterInfo>
                            ))
                        }
