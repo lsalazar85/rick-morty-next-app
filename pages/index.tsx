@@ -6,65 +6,35 @@ import { GET_ALL_CHARACTERS, FILTER_CHARACTER_BY_NAME } from "../queries"
 
 import Search from "../components/Search"
 import Header from "../components/Header"
-import Loader from "../components/Loader";
 import Pagination from "../components/Pagination"
-import Card from "../components/Card";
-import DataNotFound from "../components/DataNotFound";
+import Content from "../components/Content";
 
-import { Main, Content, CardSection } from '../styles/styles'
+
+import { Main } from '../styles/styles'
+
 
 const Home = () => {
     const [character, setCharacter] = useState<string>("");
     const [pageAllCharacters, setPageAllCharacters] = useState<number>(1)
     const [pageByName, setPageByName] = useState<number>(1)
-    const [pageCount, setPageCount] = useState<number>(1)
 
     const handleOnChange = (e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
         setCharacter(e.target.value)
     }
 
-    const AllCharacters = () => {
-        const { loading, error, data } = useQuery(GET_ALL_CHARACTERS, {
-            variables: {page: pageAllCharacters},
-        })
+    const allCharacters = useQuery(GET_ALL_CHARACTERS, {
+        variables: {page: pageAllCharacters},
+    })
 
-        data && setPageCount(data?.characters?.info?.pages)
+    const charactersByName = useQuery(FILTER_CHARACTER_BY_NAME, {
+        variables: {
+            page: pageByName,
+            character: character
+        },
+    })
 
-        return (
-            <>
-                {loading && <Loader />}
-                {error && <DataNotFound message="Character Not Found" />}
-                <CardSection>
-                    {data?.characters?.results.map((character:any) => (
-                        <Card key={character.id} character={character} />
-                    ))}
-                </CardSection>
-            </>
-        )
-    }
-
-    const CharacterByName = () => {
-        const { loading, error, data } = useQuery(FILTER_CHARACTER_BY_NAME, {
-            variables: {
-                page: pageByName,
-                character: character
-            },
-        })
-
-        data && setPageCount(data?.characters?.info?.pages)
-
-        return (
-            <>
-                {loading && <Loader />}
-                {error && <DataNotFound message="Character Not Found" />}
-                <CardSection>
-                    {data?.characters?.results.map((character:any) => (
-                        <Card key={character.id} character={character} />
-                    ))}
-                </CardSection>
-            </>
-        )
-    }
+    const pageCount = character ? charactersByName?.data?.characters?.info?.pages :
+        allCharacters?.data?.characters?.info?.pages
 
     return (
         <Main>
@@ -80,9 +50,10 @@ const Home = () => {
                 setPage={character ? setPageByName : setPageAllCharacters}
                 currentPage={character ? pageByName : pageAllCharacters}
             />
-            <Content>
-                {character ? <CharacterByName /> : <AllCharacters />}
-            </Content>
+            {
+                !character ? <Content dataObject={allCharacters} /> :
+                <Content dataObject={charactersByName} />
+            }
         </Main>
     )
 }

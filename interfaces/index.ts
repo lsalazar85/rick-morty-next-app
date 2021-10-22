@@ -21,3 +21,11 @@ export interface Character {
     }
     episode?: Episode[]
 }
+
+export interface ContentProps {
+    loading?: boolean
+    error?: any
+    data?: {
+        characters?: any
+    }
+}
