@@ -1,7 +1,14 @@
+interface EpisodeCharacters {
+    characters?: {
+        name?: string
+    }
+}
+
 interface Episode {
     name?: string
     air_date?: string
-    character?: string[]
+    episode?: string
+    characters?: Array<EpisodeCharacters>
 }
 
 export interface Character {
@@ -19,13 +26,15 @@ export interface Character {
     location?: {
         name?: string
     }
-    episode?: Episode[]
+    episode?: Array<Episode>
 }
 
 export interface ContentProps {
     loading?: boolean
-    error?: any
+    error?: boolean | undefined | any
     data?: {
-        characters?: any
+        characters?: {
+            results?: Array<Character>
+        }
     }
 }

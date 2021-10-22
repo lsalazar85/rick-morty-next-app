@@ -27,6 +27,7 @@ export const GET_ALL_CHARACTERS  = gql`
                     id
                     name
                     air_date
+                    episode
                     characters {
                         name
                     }
@@ -63,6 +64,7 @@ export const FILTER_CHARACTER_BY_NAME = gql`
                     id
                     name
                     air_date
+                    episode
                     characters {
                         name
                     }

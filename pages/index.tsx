@@ -9,9 +9,7 @@ import Header from "../components/Header"
 import Pagination from "../components/Pagination"
 import Content from "../components/Content";
 
-
 import { Main } from '../styles/styles'
-
 
 const Home = () => {
     const [character, setCharacter] = useState<string>("");
@@ -51,8 +49,8 @@ const Home = () => {
                 currentPage={character ? pageByName : pageAllCharacters}
             />
             {
-                !character ? <Content dataObject={allCharacters} /> :
-                <Content dataObject={charactersByName} />
+                character ? <Content dataObject={charactersByName} /> :
+                    <Content dataObject={allCharacters} />
             }
         </Main>
     )

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import colors from "../../styles/colors";
 
 export const PaginationContainer = styled.div`
   display: flex;
@@ -22,6 +23,6 @@ export const PaginationDiv = styled.div`
 
 export const PaginationText = styled.span`
   font-weight: 700;
-  color: #ffffff;
+  color: ${colors.White};
   margin: 0 1rem;
 `

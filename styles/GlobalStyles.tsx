@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import colors from "./colors";
 
 export const GlobalStyle = createGlobalStyle`
   html {
@@ -17,6 +18,6 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     overscroll-behavior: none;
     width: 100%; 
-    background: #24281b;
+    background: ${colors.Black};
   }
 `

@@ -1,7 +1,7 @@
 import { ButtonContainer } from "./styles";
 
 interface Props {
-    fn?: () => any
+    fn?: () => void
     text?: string
 }
 

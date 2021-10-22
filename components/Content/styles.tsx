@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import colors from "../../styles/colors";
 
 export const ContentContainer = styled.section`
   height: 100%;
@@ -9,11 +10,11 @@ export const ContentContainer = styled.section`
   
   ::-webkit-scrollbar {
     width: 0.1rem;
-    background: #24281b;
+    background: ${colors.Black};
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #97ce4c;
+    background: ${colors.MainGreen};
   }
 
   @media(min-width: 320px){

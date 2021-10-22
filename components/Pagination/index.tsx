@@ -7,7 +7,7 @@ interface Props {
     currentPage: number
 }
 
-const Pagination = ({pageCount, setPage, currentPage}: Props) => (
+const Pagination = ({ pageCount, setPage, currentPage }: Props) => (
     <PaginationContainer>
         <PaginationDiv>
             {currentPage === 1 ? null : <Button fn={() => setPage(currentPage - 1)} text="Prev" />}
