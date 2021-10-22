@@ -2,7 +2,7 @@
 Rick and Morty app developed with Next.js and Typescript
 
 ## Deployment app 
-`https://rick-morty-next-app.vercel.app/`
+[https://rick-morty-next-app.vercel.app/](https://rick-morty-next-app.vercel.app/)
 
 ## Run
 ```
