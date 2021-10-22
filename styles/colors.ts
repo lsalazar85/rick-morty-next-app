@@ -4,6 +4,7 @@ const colors = {
     White: 'rgba(255, 255, 255, 1)',
     Black: 'rgba(36, 40, 27, 1)',
     Red: 'rgba(250, 62, 62, 1)',
+    Yellow: 'rgba(240,225,74, 1)',
     Gray: 'rgba(213, 213, 213, 1)',
     SecondaryGray: 'rgba(191, 191, 191, 1)',
     DarkGray: 'rgba(60,62,68, 1)',

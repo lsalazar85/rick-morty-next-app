@@ -21,8 +21,11 @@ Starts on `http://localhost:3000`
     npm run build
 ```
 
-## Development Technologies
+## Development technologies and external packages
 * Next.js 
 * Typescript
 * GraphQL
 * Jest & React testing library
+* Styled Components
+* Styled Icons ( Close Icon for Modal )
+* Framer Motion ( Modal animations )

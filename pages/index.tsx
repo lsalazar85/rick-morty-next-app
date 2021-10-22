@@ -9,8 +9,10 @@ import Search from "../components/Search"
 import Header from "../components/Header"
 import Pagination from "../components/Pagination"
 import Content from "../components/Content";
+import Button from "../components/Button";
 
 import { Main } from '../styles/styles'
+
 
 const Home = () => {
     const {
@@ -47,6 +49,7 @@ const Home = () => {
           </Head>
             <Header />
             <Search onChange={handleOnChange} />
+            <Button fn={() => setCharacter('')} text="Clear Search" />
             <Pagination
                 pageCount={pageCount}
                 setPage={character ? setPageByName : setPageAllCharacters}

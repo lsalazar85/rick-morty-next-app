@@ -11,6 +11,10 @@ export const HeaderContainer = styled.header`
   background-position: center;
   
   @media(min-width: 320px){
+    padding: 1rem 0;
+  }
+
+  @media(min-width: 1024px){
     padding: 2rem 0;
   }
 `

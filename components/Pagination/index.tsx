@@ -10,12 +10,17 @@ interface Props {
 const Pagination = ({ pageCount, setPage, currentPage }: Props) => (
     <PaginationContainer>
         <PaginationDiv>
-            {currentPage === 1 ? null : <Button fn={() => setPage(currentPage - 1)} text="Prev" />}
-            <PaginationText>Page: {currentPage}</PaginationText>
-            {pageCount === currentPage ? null : <Button fn={() => setPage(currentPage + 1)} text="Next" />}
-        </PaginationDiv>
-        <PaginationDiv>
-            <PaginationText>Total Pages: {pageCount}</PaginationText>
+            <Button
+                fn={() => setPage(currentPage - 1)}
+                text="Prev"
+                disabled={currentPage === 1 }
+            />
+            <PaginationText>{currentPage} of {pageCount}</PaginationText>
+            <Button
+                fn={() => setPage(currentPage + 1)}
+                text="Next"
+                disabled={pageCount === currentPage}
+            />
         </PaginationDiv>
     </PaginationContainer>
 )

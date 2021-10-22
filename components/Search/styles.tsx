@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import colors from "../../styles/colors";
 
 export const SearchContainer = styled.form`
   display: flex;
@@ -6,7 +7,8 @@ export const SearchContainer = styled.form`
   align-items: center;
   width: 100%;
   padding: 1rem 0;
-  background: linear-gradient(110deg, #97ce4c 60%, #62a4ab 60%);
+  background: linear-gradient(110deg, ${colors.MainGreen} 60%, ${colors.MainBlue} 60%);
+  margin-bottom: 1rem;
 `
 
 export const SearchInput = styled.input`
@@ -18,12 +20,13 @@ export const SearchInput = styled.input`
   font-size: 1rem;
   font-weight: 400;
   text-align: center;
+  margin-right: 1rem;
   
   @media(min-width: 320px){
     width: 70%;
   }
 
   @media(min-width: 767px){
-    width: 20rem;
+    width: 15rem;
   }
 `
