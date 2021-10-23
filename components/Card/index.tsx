@@ -29,13 +29,15 @@ const Card = ({ character }: Props) => {
         name,
         image,
         status,
-        dimension,
+        dimensionName,
         species,
         gender,
         origin,
         location,
         episode
     } = character
+
+    console.log(dimensionName)
 
     return(
         <CardContainer>
@@ -58,7 +60,7 @@ const Card = ({ character }: Props) => {
                     <CharacterInfo>
                         Status: <Status status={status}/>{status}
                     </CharacterInfo >
-                    <CharacterInfo>Dimension: {dimension?.dimension}</CharacterInfo>
+                    <CharacterInfo>Dimension: {dimensionName?.dimension}</CharacterInfo>
                     <CharacterInfo>Species: {species}</CharacterInfo>
                     <CharacterInfo>Gender: {gender}</CharacterInfo>
                     <CharacterInfo>Origin: {origin?.name}</CharacterInfo>
