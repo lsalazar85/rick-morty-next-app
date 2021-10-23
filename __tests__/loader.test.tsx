@@ -3,11 +3,11 @@
  */
 
 import { render  } from '@testing-library/react'
-import DataNotFound from "@/components/DataNotFound";
+import Loader from "../components/Loader";
 
-describe('Data Not Found', () => {
+describe('Loader', () => {
     it('should render successfully', () => {
-        const { asFragment } = render(<DataNotFound message="Character Not Found"/>)
+        const { asFragment } = render(<Loader />)
 
         expect(asFragment()).toMatchSnapshot();
         expect(asFragment()).toBeDefined()

@@ -3,11 +3,12 @@
  */
 
 import { render  } from '@testing-library/react'
-import Loader from "@/components/Loader";
+import Content from "../components/Content";
+import {mockContent} from "../__mocks__/mocks";
 
-describe('Loader', () => {
+describe('Content', () => {
     it('should render successfully', () => {
-        const { asFragment } = render(<Loader />)
+        const { asFragment } = render(<Content dataObject={mockContent} />)
 
         expect(asFragment()).toMatchSnapshot();
         expect(asFragment()).toBeDefined()

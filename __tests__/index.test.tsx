@@ -10,7 +10,7 @@ import { mocks } from "../__mocks__/mocks";
 describe('Home', () => {
   it('should render successfully', () => {
     const { asFragment } = render(
-        <MockedProvider mocks={mocks} addTypename={false}>
+        <MockedProvider mocks={[]} addTypename={false}>
           <Home />
         </MockedProvider>
     )
@@ -21,7 +21,7 @@ describe('Home', () => {
 
   it('should first render buttons elements successfully ', () => {
     render(
-        <MockedProvider mocks={mocks} addTypename={false}>
+        <MockedProvider mocks={[]} addTypename={false}>
           <Home />
         </MockedProvider>
     );
