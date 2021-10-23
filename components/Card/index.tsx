@@ -37,8 +37,6 @@ const Card = ({ character }: Props) => {
         episode
     } = character
 
-    console.log(dimensionName)
-
     return(
         <CardContainer>
             <ImageContainer onClick={() => setShowModal(true)}>
