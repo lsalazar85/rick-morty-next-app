@@ -57,7 +57,7 @@ export const Status = styled.div<({ status?: string })>`
   height: 0.5rem;
   border-radius: 3.125rem;
   display: inline-flex;
-  margin:  0 0.3rem 0 0.5rem;
+  margin:  0 0.3rem 0 0;
   
   ${(props) => {
     switch (props.status) {
@@ -106,6 +106,7 @@ export const Episode = styled.span`
   font-weight: 700;
   cursor: pointer;
   margin-left: 0.1rem;
+  font-style: oblique;
 `
 
 export const EpisodeDetails = styled.div`
@@ -114,7 +115,7 @@ export const EpisodeDetails = styled.div`
   ${fadeIn({ time: '400ms' })};
 `
 
-export const EpisodeTitle = styled.span`
+export const CharacterTitle = styled.span`
   font-weight: 700;
   margin-right: 0.3rem;
 `
