@@ -11,7 +11,7 @@ import {
     Episode,
     EpisodeDetails,
     EpisodeCharacter,
-    EpisodeTitle
+    CharacterTitle
 } from "./styles";
 
 import { Character } from '../../interfaces'
@@ -56,15 +56,26 @@ const Card = ({ character }: Props) => {
                 <CharacterDetails>
                     <Name>{name}</Name>
                     <CharacterInfo>
-                        Status: <Status status={status}/>{status}
+                        <CharacterTitle>Status: </CharacterTitle>
+                        <Status status={status}/>{status}
                     </CharacterInfo >
-                    <CharacterInfo>Dimension: {dimensionName?.dimension}</CharacterInfo>
-                    <CharacterInfo>Species: {species}</CharacterInfo>
-                    <CharacterInfo>Gender: {gender}</CharacterInfo>
-                    <CharacterInfo>Origin: {origin?.name}</CharacterInfo>
-                    <CharacterInfo>Location: {location?.name}</CharacterInfo>
                     <CharacterInfo>
-                        Episode:
+                        <CharacterTitle>Dimension: </CharacterTitle>{dimensionName?.dimension}
+                    </CharacterInfo>
+                    <CharacterInfo>
+                        <CharacterTitle>Species: </CharacterTitle>{species}
+                    </CharacterInfo>
+                    <CharacterInfo>
+                        <CharacterTitle>Gender: </CharacterTitle>{gender}
+                    </CharacterInfo>
+                    <CharacterInfo>
+                        <CharacterTitle>Origin: </CharacterTitle>{gender}{origin?.name}
+                    </CharacterInfo>
+                    <CharacterInfo>
+                        <CharacterTitle>Location: </CharacterTitle>{location?.name}
+                    </CharacterInfo>
+                    <CharacterInfo>
+                        <CharacterTitle>Episode: </CharacterTitle>
                         <Episode onClick={() => setShowEpisodeDetail(prevState => !prevState) }>
                             {episode?.[0].name}
                         </Episode>
@@ -75,19 +86,19 @@ const Card = ({ character }: Props) => {
                         <EpisodeDetails>
                             <Name>Episode Details</Name>
                             <CharacterInfo>
-                                <EpisodeTitle>Name: </EpisodeTitle>
+                                <CharacterTitle>Name: </CharacterTitle>
                                 {episode?.[0].name}
                             </CharacterInfo>
                             <CharacterInfo>
-                                <EpisodeTitle>Episode: </EpisodeTitle>
+                                <CharacterTitle>Episode: </CharacterTitle>
                                 {episode?.[0].episode}
                             </CharacterInfo>
                             <CharacterInfo>
-                                <EpisodeTitle>Air Date: </EpisodeTitle>
+                                <CharacterTitle>Air Date: </CharacterTitle>
                                 {episode?.[0].air_date}
                             </CharacterInfo>
                             <CharacterInfo>
-                                <EpisodeTitle>Characters:</EpisodeTitle>
+                                <CharacterTitle>Characters:</CharacterTitle>
                             </CharacterInfo>
                             <EpisodeCharacter>
                                 {
