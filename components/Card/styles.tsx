@@ -5,40 +5,42 @@ import colors from "../../styles/colors";
 export const CardContainer = styled.div`
   border-radius: 0.5rem;
   align-items: center;
-  background: ${colors.DarkGray};
-  color: ${colors.White};
+  justify-content: center;
   ${fadeIn({ time: '400ms' })};
   
   @media(min-width: 320px){
     display: flex;
     flex-direction: column;
-    flex: 0 0 100%;
+    flex: 0 0 50%;
     margin: 0 0 1rem 0;
-    padding-top: 1rem;
   }
   
   @media(min-width: 1024px){
-    flex: 0 0 49%;
+    flex: 0 0 20%;
     margin: 0 0.1rem 1.3rem 0;
     flex-direction: row;
     padding-top: 0;
-    padding-left: 1rem;
   }
 `
 
 export const ImageContainer = styled.div`
-  width: 11rem;
+  width: 90%;
+  cursor: pointer;
   
   > div {
-    border-radius: 50%;
+    border-radius: 0.5rem;
+    
+    img {
+      ${fadeIn({ time: '700ms' })};
+    }
   }
 `
 
 export const CharacterDetails = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 1rem;
   width: 100%;
+  color: ${colors.Black};
 
   @media(min-width: 320px){
     border-top: 1px solid ${colors.MainGreen};
@@ -57,8 +59,7 @@ export const Status = styled.div<({ status?: string })>`
   border-radius: 3.125rem;
   display: inline-flex;
   margin:  0 0.3rem 0 0.5rem;
-
-
+  
   ${(props) => {
     switch (props.status) {
       case 'Alive':
@@ -91,6 +92,7 @@ export const CharacterInfo = styled.span`
   align-items: center;
   line-height: 1.5;
   font-size: 0.81rem;
+  margin-right: 0.2rem;
 
   @media(min-width: 320px){
     font-size: 1rem;
@@ -109,6 +111,8 @@ export const Episode = styled.span`
 
 export const EpisodeDetails = styled.div`
   color: ${colors.Black};
+  margin-top: 1rem;
+  ${fadeIn({ time: '400ms' })};
 `
 
 export const EpisodeTitle = styled.span`
@@ -118,5 +122,5 @@ export const EpisodeTitle = styled.span`
 
 export const EpisodeCharacter = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
 `

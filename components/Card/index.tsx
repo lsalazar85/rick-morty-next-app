@@ -23,11 +23,13 @@ interface Props {
 
 const Card = ({ character }: Props) => {
     const [showModal, setShowModal] = useState<boolean>(false)
+    const [showEpisodeDetail, setShowEpisodeDetail] = useState<boolean>(false)
+
     const {
         name,
         image,
         status,
-        dimensionName,
+        dimension,
         species,
         gender,
         origin,
@@ -37,7 +39,7 @@ const Card = ({ character }: Props) => {
 
     return(
         <CardContainer>
-            <ImageContainer>
+            <ImageContainer onClick={() => setShowModal(true)}>
                 <Image
                     src={image!}
                     alt={name}
@@ -46,49 +48,57 @@ const Card = ({ character }: Props) => {
                     height={200}
                 />
             </ImageContainer>
-            <CharacterDetails>
-                <Name>{name}</Name>
-                <CharacterInfo>
-                    Status: <Status status={status}/>{status}
-                </CharacterInfo >
-                <CharacterInfo>Dimension: {dimensionName?.dimension}</CharacterInfo>
-                <CharacterInfo>Species: {species}</CharacterInfo>
-                <CharacterInfo>Gender: {gender}</CharacterInfo>
-                <CharacterInfo>Origin: {origin?.name}</CharacterInfo>
-                <CharacterInfo>Location: {location?.name}</CharacterInfo>
-                <CharacterInfo onClick={() => setShowModal(true)}>
-                    Episode: <Episode>{episode?.[0].name}</Episode>
-                </CharacterInfo>
-            </CharacterDetails>
             <Modal
                 visible={showModal}
-                title="Episode Details"
+                title="Character Details"
                 onClose={() => setShowModal(false)}
             >
-               <EpisodeDetails>
-                   <CharacterInfo>
-                       <EpisodeTitle>Name: </EpisodeTitle>
-                        {episode?.[0].name}
-                   </CharacterInfo>
-                   <CharacterInfo>
-                       <EpisodeTitle>Episode: </EpisodeTitle>
-                        {episode?.[0].episode}
-                   </CharacterInfo>
-                   <CharacterInfo>
-                       <EpisodeTitle>Air Date: </EpisodeTitle>
-                        {episode?.[0].air_date}
-                   </CharacterInfo>
-                   <CharacterInfo>
-                       <EpisodeTitle>Characters:</EpisodeTitle>
-                   </CharacterInfo>
-                   <EpisodeCharacter>
-                       {
-                           episode?.[0]?.characters?.map((characterName, idx: number) => (
-                               <CharacterInfo key={idx}>{characterName.name}</CharacterInfo>
-                           ))
-                       }
-                   </EpisodeCharacter>
-               </EpisodeDetails>
+                <CharacterDetails>
+                    <Name>{name}</Name>
+                    <CharacterInfo>
+                        Status: <Status status={status}/>{status}
+                    </CharacterInfo >
+                    <CharacterInfo>Dimension: {dimension?.dimension}</CharacterInfo>
+                    <CharacterInfo>Species: {species}</CharacterInfo>
+                    <CharacterInfo>Gender: {gender}</CharacterInfo>
+                    <CharacterInfo>Origin: {origin?.name}</CharacterInfo>
+                    <CharacterInfo>Location: {location?.name}</CharacterInfo>
+                    <CharacterInfo>
+                        Episode:
+                        <Episode onClick={() => setShowEpisodeDetail(prevState => !prevState) }>
+                            {episode?.[0].name}
+                        </Episode>
+                    </CharacterInfo>
+                </CharacterDetails>
+                {
+                    showEpisodeDetail && (
+                        <EpisodeDetails>
+                            <Name>Episode Details</Name>
+                            <CharacterInfo>
+                                <EpisodeTitle>Name: </EpisodeTitle>
+                                {episode?.[0].name}
+                            </CharacterInfo>
+                            <CharacterInfo>
+                                <EpisodeTitle>Episode: </EpisodeTitle>
+                                {episode?.[0].episode}
+                            </CharacterInfo>
+                            <CharacterInfo>
+                                <EpisodeTitle>Air Date: </EpisodeTitle>
+                                {episode?.[0].air_date}
+                            </CharacterInfo>
+                            <CharacterInfo>
+                                <EpisodeTitle>Characters:</EpisodeTitle>
+                            </CharacterInfo>
+                            <EpisodeCharacter>
+                                {
+                                    episode?.[0]?.characters?.map((characterName, idx: number) => (
+                                        <CharacterInfo key={idx}>{characterName.name}, </CharacterInfo>
+                                    ))
+                                }
+                            </EpisodeCharacter>
+                        </EpisodeDetails>
+                    )
+                }
             </Modal>
         </CardContainer>
     )

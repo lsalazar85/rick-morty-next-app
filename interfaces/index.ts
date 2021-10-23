@@ -13,7 +13,7 @@ export interface Character {
     id: number
     name: string
     image: string
-    dimensionName: {
+    dimension: {
         dimension: string
     }
     status: string
