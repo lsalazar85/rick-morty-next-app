@@ -17,6 +17,7 @@ const Search = ({ onChange }: Props ) => {
                 type="text"
                 placeholder="Search character by name"
                 value={character}
+                data-testid="search"
             />
         </SearchContainer>
     )
