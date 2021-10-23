@@ -24,6 +24,8 @@ interface Props {
 const Card = ({ character }: Props) => {
     const [showModal, setShowModal] = useState<boolean>(false)
     const {
+        name,
+        image,
         status,
         dimensionName,
         species,
@@ -37,17 +39,17 @@ const Card = ({ character }: Props) => {
         <CardContainer>
             <ImageContainer>
                 <Image
-                    src={character.image!}
-                    alt={character.name}
+                    src={image!}
+                    alt={name}
                     layout="responsive"
                     width={200}
                     height={200}
                 />
             </ImageContainer>
             <CharacterDetails>
-                <Name>{character?.name}</Name>
+                <Name>{name}</Name>
                 <CharacterInfo>
-                    Status: <Status status={status}/>{character?.status}
+                    Status: <Status status={status}/>{status}
                 </CharacterInfo >
                 <CharacterInfo>Dimension: {dimensionName?.dimension}</CharacterInfo>
                 <CharacterInfo>Species: {species}</CharacterInfo>
