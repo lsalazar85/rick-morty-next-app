@@ -3,11 +3,11 @@
  */
 
 import { render  } from '@testing-library/react'
-import Loader from "@/components/Loader";
+import Header from "../components/Header";
 
-describe('Loader', () => {
+describe('Header', () => {
     it('should render successfully', () => {
-        const { asFragment } = render(<Loader />)
+        const { asFragment } = render(<Header />)
 
         expect(asFragment()).toMatchSnapshot();
         expect(asFragment()).toBeDefined()
