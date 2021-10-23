@@ -40,6 +40,11 @@ const Home = () => {
         },
     })
 
+    const clearSearch = () => {
+        setCharacter('')
+        setPageByName(1)
+    }
+
     return (
         <Main>
           <Head>
@@ -49,7 +54,7 @@ const Home = () => {
           </Head>
             <Header />
             <Search onChange={handleOnChange} />
-            <Button fn={() => setCharacter('')} text="Clear Search" />
+            <Button fn={clearSearch} text="Clear Search" />
             <Pagination
                 pageCount={pageCount}
                 setPage={character ? setPageByName : setPageAllCharacters}
