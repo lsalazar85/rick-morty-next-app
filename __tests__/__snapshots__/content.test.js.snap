@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Content should render successfully 1`] = `
+<DocumentFragment>
+  <section
+    class="styles__ContentContainer-sc-773toi-0 dKzdKd"
+  >
+    <div
+      class="styles__CardSection-sc-1d2ydxg-1 kIIQyV"
+    />
+  </section>
+</DocumentFragment>
+`;
