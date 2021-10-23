@@ -43,7 +43,6 @@ export const CharacterDetails = styled.div`
   color: ${colors.Black};
 
   @media(min-width: 320px){
-    border-top: 1px solid ${colors.MainGreen};
     margin-top: 1rem;
   }
 
