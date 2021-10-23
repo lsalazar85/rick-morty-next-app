@@ -3,19 +3,16 @@
  */
 
 import { render  } from '@testing-library/react'
-import Modal from "@/components/Modal";
+import Pagination from "../components/Pagination";
 
-
-describe('Modal', () => {
+describe('Pagination', () => {
     it('should render successfully', () => {
         const { asFragment } = render(
-            <Modal
-                onClose={() => jest.fn()}
-                title='Modal Test'
-                visible={true}
-            >
-                <div>Content</div>
-            </Modal>
+            <Pagination
+                pageCount={34}
+                setPage={() => jest.fn()}
+                currentPage={2}
+            />
         )
 
         expect(asFragment()).toMatchSnapshot();

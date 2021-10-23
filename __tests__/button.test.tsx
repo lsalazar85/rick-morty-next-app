@@ -2,13 +2,13 @@
  * @jest-environment jsdom
  */
 
-import { render  } from '@testing-library/react'
-import Content from "@/components/Content";
-import {characterObject } from "../__mocks__/mocks";
 
-describe('Content', () => {
+import { render  } from '@testing-library/react'
+import Button from "../components/Button";
+
+describe('Button', () => {
     it('should render successfully', () => {
-        const { asFragment } = render(<Content dataObject={characterObject}/>)
+        const { asFragment } = render(<Button text='Button' fn={jest.fn()} />)
 
         expect(asFragment()).toMatchSnapshot();
         expect(asFragment()).toBeDefined()
